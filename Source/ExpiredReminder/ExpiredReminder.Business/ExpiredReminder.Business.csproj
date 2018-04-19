@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D287CDDB-7E11-47B8-A163-A85E365E7401}</ProjectGuid>
+    <ProjectGuid>{5BAEA201-7A77-4169-994C-237C8324D865}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExpiredReminder.DataAccess</RootNamespace>
-    <AssemblyName>ExpiredReminder.DataAccess</AssemblyName>
+    <RootNamespace>ExpiredReminder.Business</RootNamespace>
+    <AssemblyName>ExpiredReminder.Business</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,15 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Case.cs" />
-    <Compile Include="ExpiredPolicy.cs" />
-    <Compile Include="ExpiredReminderDataContext.cs" />
-    <Compile Include="Lawyer.cs" />
+    <Compile Include="CaseReminder.cs" />
+    <Compile Include="CaseReminderCollection.cs" />
+    <Compile Include="DatetimeExtensions.cs" />
+    <Compile Include="ExpiredCases.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpiredReminder.DataAccess\ExpiredReminder.DataAccess.csproj">
+      <Project>{d287cddb-7e11-47b8-a163-a85e365e7401}</Project>
+      <Name>ExpiredReminder.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

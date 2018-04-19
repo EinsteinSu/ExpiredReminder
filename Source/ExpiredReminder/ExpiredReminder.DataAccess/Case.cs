@@ -25,14 +25,25 @@ namespace ExpiredReminder.DataAccess
 
         public string Cause { get; set; }
 
+        [Required]
+        public DateTime FirstTime { get; set; }
 
-    }
+        public DateTime? SecondTime { get; set; }
 
-    public class Lawyer
-    {
-        public int Id { get; set; }
+        public DateTime? FinishTime { get; set; }
 
-        [MaxLength(20)]
-        public string Name { get; set; }
+        public double AdvancedPayment { get; set; }
+
+        public double AccuserPayment { get; set; }
+
+        public double InsuranceReturns { get; set; }
+
+        public double LawyerCommission { get; set; }
+
+        public string CaseSummary { get; set; }
+
+        public string Comment { get; set; }
+
+        public bool CancelRemind { get; set; }
     }
 }
