@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpiredReminder.Business", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpiredReminder.Business.Test", "ExpiredReminder.Business.Test\ExpiredReminder.Business.Test.csproj", "{852B8C74-A827-4D65-8999-0D64EBB92A39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpiredReminder.UI.Test", "ExpiredReminder.UI.Test\ExpiredReminder.UI.Test.csproj", "{AEDBBFF5-80CB-4330-807A-8CBBC56256DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{852B8C74-A827-4D65-8999-0D64EBB92A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{852B8C74-A827-4D65-8999-0D64EBB92A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{852B8C74-A827-4D65-8999-0D64EBB92A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEDBBFF5-80CB-4330-807A-8CBBC56256DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDBBFF5-80CB-4330-807A-8CBBC56256DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDBBFF5-80CB-4330-807A-8CBBC56256DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDBBFF5-80CB-4330-807A-8CBBC56256DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

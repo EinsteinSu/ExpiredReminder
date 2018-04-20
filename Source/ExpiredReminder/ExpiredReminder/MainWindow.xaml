@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dxui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        WindowStyle="None" WindowState="Maximized"
+        WindowState="Maximized"
         Title="ExpiredReminder" Height="700" Width="900">
     <dx:BackgroundPanel>
         <dxui:NavigationFrame x:Name="NavigationRoot" AnimationType="SlideHorizontal" Source="GroupedItemsPage" />

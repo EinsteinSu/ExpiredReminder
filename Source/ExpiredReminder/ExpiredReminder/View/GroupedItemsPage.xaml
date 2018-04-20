@@ -12,7 +12,7 @@
     <UserControl.DataContext>
         <vm:GroupedItemsViewModel/>
     </UserControl.DataContext>
-    <dxui:PageAdornerControl Header="DXTileLayoutApplication">
+    <dxui:PageAdornerControl Header="{Binding Title}">
         <dxlc:TileLayoutControl ItemsSource="{Binding Items}" ShowLayerSeparators="True" AllowItemMoving="False" Padding="40,60,40,10">
             <dxlc:TileLayoutControl.Resources>
                 <Style TargetType="dxlc:Tile">

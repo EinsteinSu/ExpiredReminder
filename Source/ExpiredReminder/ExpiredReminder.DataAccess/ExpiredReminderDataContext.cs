@@ -8,6 +8,11 @@ namespace ExpiredReminder.DataAccess
         {
         }
 
+        public ExpiredReminderDataContext(string database) : base(database)
+        {
+
+        }
+
         public DbSet<Case> Cases { get; set; }
 
         public DbSet<Lawyer> Lawyers { get; set; }
