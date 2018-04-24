@@ -12,13 +12,12 @@
     <UserControl.DataContext>
         <vm:ItemDetailViewModel/>
     </UserControl.DataContext>
-    <dxui:PageAdornerControl Header="Item details">
+    <dxui:PageAdornerControl Header="{Binding SelectedItem.Title}">
         <dxlc:LayoutControl DataContext="{Binding SelectedItem}" Padding="40, 10, 40, 10" ItemSpace="20">
-            <dxlc:LayoutGroup Orientation="Vertical" ItemSpace="10" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <!--<dxlc:LayoutGroup Orientation="Vertical" ItemSpace="10" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <TextBlock Text="{Binding Title}" FontSize="20"/>
                 <TextBlock Text="{Binding Subtitle}" FontSize="16"/>
-                <Image Source="{Binding Image}"/>
-            </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>-->
             <dxlc:LayoutGroup>
                 <ContentControl Content="{Binding Content}"/>
             </dxlc:LayoutGroup>

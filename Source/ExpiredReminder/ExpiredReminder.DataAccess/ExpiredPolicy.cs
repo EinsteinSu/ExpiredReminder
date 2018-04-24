@@ -13,5 +13,6 @@ namespace ExpiredReminder.DataAccess
 
         public int MaxDay { get; set; }
 
+        public ExpiredColor Color { get; set; }
     }
 }

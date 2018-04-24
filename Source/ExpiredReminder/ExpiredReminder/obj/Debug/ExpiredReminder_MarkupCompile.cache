@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ssu2\Documents\GitHub\ExpiredReminder\Source\ExpiredReminder\ExpiredReminder\obj\Debug\
+C:\Users\einst\Documents\GitHub\ExpiredReminder\Source\ExpiredReminder\ExpiredReminder\obj\Debug\
 ExpiredReminder
 none
 false
 DEBUG;TRACE
-C:\Users\ssu2\Documents\GitHub\ExpiredReminder\Source\ExpiredReminder\ExpiredReminder\App.xaml
-61884456512
+C:\Users\einst\Documents\GitHub\ExpiredReminder\Source\ExpiredReminder\ExpiredReminder\App.xaml
+7341946329
 
-17-59867891
-30-9988022
-MainWindow.xaml;View\FunctionalityPages\CaseEdit.xaml;View\FunctionalityPages\ExpiredPolicyEdit.xaml;View\FunctionalityPages\LawyerEdit.xaml;View\GroupedItemsPage.xaml;View\ItemDetailPage.xaml;
+20159899964
+311422881510
+MainWindow.xaml;View\FunctionalityPages\CaseEditView.xaml;View\FunctionalityPages\ExpiredCaseView.xaml;View\FunctionalityPages\ExpiredPolicyEditView.xaml;View\FunctionalityPages\LawyerEditView.xaml;View\GroupedItemsPage.xaml;View\ItemDetailPage.xaml;
 
 False
 

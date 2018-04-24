@@ -30,7 +30,7 @@ namespace ExpiredReminder.Business
 
         private bool CanRemind(Case c, int minDay, int maxDay, DateTime endDate)
         {
-            return c.FirstTime.DateDiff(endDate) >= minDay && c.FirstTime.DateDiff(endDate) < maxDay;
+            return c.FirstTime.DateDiff(endDate) >= minDay && c.FirstTime.DateDiff(endDate) < maxDay && !c.CancelRemind;
         }
     }
 }

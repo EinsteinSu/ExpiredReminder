@@ -1,0 +1,29 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:dataAccess="clr-namespace:ExpiredReminder.DataAccess;assembly=ExpiredReminder.DataAccess"
+             x:Class="ExpiredReminder.View.FunctionalityPages.ExpiredPolicyEditView"
+             mc:Ignorable="d"  Loaded="ExpiredPolicyEditView_OnLoaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <dxg:GridControl x:Name="grid" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" >
+            <dxg:GridControl.View>
+                <dxg:TableView ShowGroupPanel="False" EditFormShowMode="Dialog" AllowEditing="True" NewItemRowPosition="Top" AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="Id" EditFormVisible="False"/>
+            <dxg:GridColumn FieldName="Name" Header="提醒名称"/>
+            <dxg:GridColumn FieldName="MinDay" Header="最小日期"/>
+            <dxg:GridColumn FieldName="MaxDay" Header="最大日期"/>
+            <dxg:GridColumn FieldName="Color" Header="颜色">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:ComboBoxEditSettings x:Name="color"/>
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

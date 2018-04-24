@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ExpiredReminder.View.FunctionalityPages.ExpiredCaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExpiredReminder.View.FunctionalityPages"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <dxg:GridControl x:Name="grid" >
+            <dxg:GridControl.TotalSummary>
+                <dxg:GridSummaryItem DisplayFormat="N2" SummaryType="Sum" FieldName="AdvancedPayment"/>
+                <dxg:GridSummaryItem DisplayFormat="N2" SummaryType="Sum" FieldName="AccuserPayment"/>
+                <dxg:GridSummaryItem DisplayFormat="N2" SummaryType="Sum" FieldName="InsuranceReturns"/>
+                <dxg:GridSummaryItem DisplayFormat="N2" SummaryType="Sum" FieldName="LawyerCommission"/>
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NavigationStyle="Row"/>
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="Accuser" Header="原告"/>
+            <dxg:GridColumn FieldName="Accused" Header="被告"/>
+            <dxg:GridColumn FieldName="Lawyer.Name" Header="律师"/>
+            <dxg:GridColumn FieldName="Lawyer" Visible="False" EditFormVisible="False"/>
+            <dxg:GridColumn FieldName="Cause" Header="案由"/>
+            <dxg:GridColumn FieldName="FirstTime" Header="一审立案时间"/>
+            <dxg:GridColumn FieldName="SecondTime" Header="二审立案时间"/>
+            <dxg:GridColumn FieldName="FinishTime" Header="执行结案时间"/>
+            <dxg:GridColumn FieldName="AdvancedPayment" Header="代垫费用"/>
+            <dxg:GridColumn FieldName="AccuserPayment" Header="原告支付的保险费用"/>
+            <dxg:GridColumn FieldName="InsuranceReturns" Header="保险返点"/>
+            <dxg:GridColumn FieldName="LawyerCommission" Header="律师费分成"/>
+            <dxg:GridColumn FieldName="CaseSummary" Header="案件总结"/>
+            <dxg:GridColumn FieldName="Comment" Header="备注" SortOrder="Ascending" SortIndex="0"/>
+            <dxg:GridColumn FieldName="CancelRemind" Header="取消提醒"/>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

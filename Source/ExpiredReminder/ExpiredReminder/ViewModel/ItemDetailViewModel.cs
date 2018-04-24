@@ -22,15 +22,6 @@ namespace ExpiredReminder.ViewModel
             SelectedItem = item;
         }
 
-        private void SaveState(object navigationParameter)
-        {
-            var item = UIDataSource.GetItem((string)navigationParameter);
-            if (item is ISave save)
-            {
-                save.Save();
-            }
-        }
-
         #region INavigationAware Members
 
         public void NavigatedFrom(NavigationEventArgs e)
@@ -45,7 +36,6 @@ namespace ExpiredReminder.ViewModel
 
         public void NavigatingFrom(NavigatingEventArgs e)
         {
-            SaveState(e.Parameter);
         }
 
         #endregion

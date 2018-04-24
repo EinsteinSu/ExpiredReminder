@@ -1,5 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
+using ExpiredReminder.Business;
+using ExpiredReminder.DataAccess;
 using ExpiredReminder.View.FunctionalityPages;
 
 // The data model defined by this file serves as a representative example of a strongly-typed
@@ -23,140 +26,58 @@ namespace ExpiredReminder.DataModel
         public UIDataSource()
         {
             _items = new ObservableCollection<DataItem>();
-            var content = new LawyerEdit();
-            var ITEM_DESCRIPTION =
-                "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.";
 
-            _items.Add(new DataItem(
-                "Item Title: 1",
-                "Item Subtitle: 1",
+            _items = GetDataItems();
+        }
+
+        public static ObservableCollection<DataItem> GetDataItems()
+        {
+            var items = new ObservableCollection<DataItem>();
+            //todo customize the icons
+            items.Add(new DataItem(
+                "案件录入",
+                "录入案件信息，以便统计案件的金额和提醒案件过期时间",
                 "Assets/LightGray.png",
-                ITEM_DESCRIPTION,
-                content, true, "Group 1"));
-            _items.Add(new DataItem(
-                "Item Title: 2",
-                "Item Subtitle: 2",
+                "录入案件信息，以便统计案件的金额和提醒案件过期时间",
+                new CaseEditView(), true, "信息录入"));
+            items.Add(new DataItem(
+                "律师管理",
+                "律师信息录入",
                 "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 3",
-                "Item Subtitle: 3",
+                "录入律师信息，以便统计律师分成等",
+                new LawyerEditView()));
+            items.Add(new DataItem(
+                "过期策略",
+                "设置过期提醒策略",
                 "Assets/MediumGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 4",
-                "Item Subtitle: 4",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 5",
-                "Item Subtitle: 5",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 6",
-                "Item Subtitle: 6",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
+                "设置过期提醒策略，以此来进行提醒。（例如： 过期时间为大于90天， 小于180 天， 名称为： 三个月提醒）",
+                new ExpiredPolicyEditView()));
 
+            int i = 0;
+            using (var context = new ExpiredReminderDataContext())
+            {
+                CaseReminderCollection collection = new CaseReminderCollection(context.Cases.ToList(), DateTime.Now);
+                collection.Calculate();
+                foreach (var expiredCase in collection.ExpiredCaseses)
+                {
+                    var item = new DataItem(
+                        expiredCase.Policy.Name,
+                        $"过期时间{expiredCase.Policy.MinDay}, 案件数量{expiredCase.Cases.Count}",
+                        "",
+                        $"时间区间 大于等于{expiredCase.Policy.MinDay} 小于 {expiredCase.Policy.MaxDay}",
+                        new ExpiredCaseView(expiredCase.Cases), expiredCase.Policy.Color.ToString());
+                    if (i == 0)
+                    {
+                        item.IsFlowBreak = true;
+                        item.GroupHeader = "过期案件";
 
-            _items.Add(new DataItem(
-                "Item Title: 1",
-                "Item Subtitle: 1",
-                "Assets/MediumGray.png",
-                ITEM_DESCRIPTION,
-                content, true, "Group 2"));
-            _items.Add(new DataItem(
-                "Item Title: 2",
-                "Item Subtitle: 2",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 3",
-                "Item Subtitle: 3",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
+                    }
+                    items.Add(item);
+                    i++;
+                }
+            }
 
-            _items.Add(new DataItem(
-                "Item Title: 1",
-                "Item Subtitle: 1",
-                "Assets/MediumGray.png",
-                ITEM_DESCRIPTION,
-                content, true, "Group 3"));
-            _items.Add(new DataItem(
-                "Item Title: 2",
-                "Item Subtitle: 2",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 3",
-                "Item Subtitle: 3",
-                "Assets/LightGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 4",
-                "Item Subtitle: 4",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 5",
-                "Item Subtitle: 5",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 6",
-                "Item Subtitle: 6",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 7",
-                "Item Subtitle: 7",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 8",
-                "Item Subtitle: 8",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-
-            _items.Add(new DataItem(
-                "Item Title: 1",
-                "Item Subtitle: 1",
-                "Assets/MediumGray.png",
-                ITEM_DESCRIPTION,
-                content, true, "Group 4"));
-            _items.Add(new DataItem(
-                "Item Title: 2",
-                "Item Subtitle: 2",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 3",
-                "Item Subtitle: 3",
-                "Assets/LightGray.png",
-                ITEM_DESCRIPTION,
-                content));
-            _items.Add(new DataItem(
-                "Item Title: 4",
-                "Item Subtitle: 4",
-                "Assets/DarkGray.png",
-                ITEM_DESCRIPTION,
-                content));
+            return items;
         }
 
         public static UIDataSource Instance { get; } = new UIDataSource();

@@ -19,13 +19,14 @@ namespace ExpiredReminder.DataAccess
         public string Accused { get; set; }
 
         [ForeignKey("Lawyer")]
+        [Required(ErrorMessage = "请选择一个律师")]
         public int LawyerId { get; set; }
 
         public virtual Lawyer Lawyer { get; set; }
 
         public string Cause { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "请输入正确的日期时间")]
         public DateTime FirstTime { get; set; }
 
         public DateTime? SecondTime { get; set; }

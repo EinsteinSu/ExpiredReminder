@@ -12,17 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DevExpress.Xpf.Grid;
+using ExpiredReminder.ViewModel.FunctionalityPages;
 
 namespace ExpiredReminder.View.FunctionalityPages
 {
     /// <summary>
-    /// Interaction logic for ExpiredPolicyEdit.xaml
+    /// Interaction logic for LawyerEditView.xaml
     /// </summary>
-    public partial class ExpiredPolicyEdit : UserControl
+    public partial class LawyerEditView : IDisposable
     {
-        public ExpiredPolicyEdit()
+        private readonly LawyerEdit _edit;
+        public LawyerEditView()
         {
             InitializeComponent();
+            _edit = new LawyerEdit(grid, grid.View as TableView);
+        }
+
+        public void Dispose()
+        {
+            _edit?.Dispose();
+        }
+
+        private void LawyerEditView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _edit.Refresh();
         }
     }
 }

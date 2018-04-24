@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DevExpress.Xpf.Core.DataSources;
+using DevExpress.Xpf.Grid;
 using ExpiredReminder.DataAccess;
 
 namespace ExpiredReminder.UI.Test
@@ -22,20 +24,23 @@ namespace ExpiredReminder.UI.Test
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ExpiredReminderDataContext context;
+        private ExpiredReminderDataContext context = new ExpiredReminderDataContext();
         public MainWindow()
         {
             InitializeComponent();
-            context = new ExpiredReminderDataContext();
+            context.Lawyers.Load();
+            grid.ItemsSource = context.Lawyers.Local;
         }
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
-            var item = (EntitySimpleDataSource)this.TryFindResource("EntitySimpleDataSource");
+         
+        }
 
-            var source = item.DataContext;
-            //source.SaveChanges();
+        private void GridViewBase_OnRowUpdated(object sender, RowEventArgs e)
+        {
             context.SaveChanges();
+            grid.RefreshData();
         }
     }
 }

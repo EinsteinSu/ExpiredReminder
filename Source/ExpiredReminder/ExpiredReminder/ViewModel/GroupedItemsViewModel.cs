@@ -18,7 +18,7 @@ namespace ExpiredReminder.ViewModel
 
         public void LoadState(object navigationParameter)
         {
-            Items = UIDataSource.Instance.Items;
+            Items = UIDataSource.GetDataItems();
         }
 
         #region INavigationAware Members

@@ -8,17 +8,17 @@ namespace ExpiredReminder.DataModel
     public class DataItem : DataCommon
     {
         private FrameworkElement _content;
-        private string _GroupHeader;
-        private bool _IsFlowBreak;
+        private string _groupHeader;
+        private bool _isFlowBreak;
 
-        public DataItem(string title, string subtitle, string imagePath, string description, FrameworkElement content)
-            : this(title, subtitle, imagePath, description, content, false, string.Empty)
+        public DataItem(string title, string subtitle, string imagePath, string description, FrameworkElement content, string color = "")
+            : this(title, subtitle, imagePath, description, content, false, string.Empty, color)
         {
         }
 
         public DataItem(string title, string subtitle, string imagePath, string description, FrameworkElement content,
-            bool isFlowBreak, string groupHeader)
-            : base(title, subtitle, imagePath, description)
+            bool isFlowBreak, string groupHeader, string color = "")
+            : base(title, subtitle, imagePath, description, color)
         {
             _content = content;
             IsFlowBreak = isFlowBreak;
@@ -33,14 +33,14 @@ namespace ExpiredReminder.DataModel
 
         public bool IsFlowBreak
         {
-            get => _IsFlowBreak;
-            set => SetProperty(ref _IsFlowBreak, value, "IsFlowBreak");
+            get => _isFlowBreak;
+            set => SetProperty(ref _isFlowBreak, value, "IsFlowBreak");
         }
 
         public string GroupHeader
         {
-            get => _GroupHeader;
-            set => SetProperty(ref _GroupHeader, value, "GroupHeader");
+            get => _groupHeader;
+            set => SetProperty(ref _groupHeader, value, "GroupHeader");
         }
     }
 }

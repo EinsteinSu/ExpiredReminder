@@ -37,6 +37,7 @@ namespace ExpiredReminder.Business.Test
             new Case {FirstTime = DateTime.Now.AddDays(-273)},
             new Case {FirstTime = DateTime.Now.AddDays(-366)},
             new Case {FirstTime = DateTime.Now.AddDays(-376)},
+            new Case {FirstTime = DateTime.Now.AddDays(-376),CancelRemind = true},//should not be scaned
             new Case {FirstTime = DateTime.Now.AddDays(-30)},
             new Case {FirstTime = DateTime.Now.AddDays(-10)}
         };

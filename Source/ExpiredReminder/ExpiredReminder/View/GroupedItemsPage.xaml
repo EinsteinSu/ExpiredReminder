@@ -21,7 +21,7 @@
                         <Setter.Value>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Source="../Assets/MediumGray.png" Stretch="Fill"/>
+                                    <Image Source="{Binding Image}" Stretch="Fill"/>
                                 <TextBlock Text="{Binding Title}" FontFamily="Segoe UI Light" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Grid>
                             </DataTemplate>
