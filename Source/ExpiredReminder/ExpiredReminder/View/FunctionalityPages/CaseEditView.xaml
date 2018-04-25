@@ -34,7 +34,7 @@
                     <dxe:MemoEditSettings MemoTextWrapping="Wrap" ShowIcon="False"/>
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
-            <dxg:GridColumn FieldName="ResourceDirectory" Header="Resource Directory">
+            <dxg:GridColumn FieldName="ResourceDirectory" Header="资料文件夹">
                 <dxg:GridColumn.DisplayTemplate>
                     <ControlTemplate>
                         <dxe:HyperlinkEdit Name="PART_Editor" RequestNavigation="HyperlinkEdit_OnRequestNavigation" AllowAutoNavigate="True" Text="{Binding RowData.DataContext.ResourceDirectory,Mode=TwoWay}" />

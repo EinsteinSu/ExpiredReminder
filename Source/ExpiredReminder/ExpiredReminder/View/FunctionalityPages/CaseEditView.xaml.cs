@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Input;
 using DevExpress.Xpf.Editors;
 using DevExpress.Xpf.Grid;
 using ExpiredReminder.ViewModel.FunctionalityPages;
@@ -34,38 +33,26 @@ namespace ExpiredReminder.View.FunctionalityPages
             _edit.Refresh();
         }
 
-        private void ButtonEditSettings_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Clicked me!");
-        }
-
         private void ButtonEditSettings_OnDefaultButtonClick(object sender, RoutedEventArgs e)
         {
             if (sender is ButtonEdit button)
-            {
                 using (var dialog = new FolderBrowserDialog())
                 {
-                    if (dialog.ShowDialog() == DialogResult.OK)
-                    {
-                        button.Text = dialog.SelectedPath;
-                    }
+                    if (dialog.ShowDialog() == DialogResult.OK) button.Text = dialog.SelectedPath;
                 }
-            }
         }
 
         private void HyperlinkEdit_OnRequestNavigation(object sender, HyperlinkEditRequestNavigationEventArgs e)
         {
             if (sender is HyperlinkEdit link)
-            {
                 try
                 {
                     Process.Start(link.Text);
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show($"Can not open the folder{link.Text}, {exception.Message}");
+                    MessageBox.Show($"不能打开文件夹 {link.Text}, {exception.Message}");
                 }
-            }
         }
     }
 }

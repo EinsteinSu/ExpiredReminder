@@ -210,3 +210,5 @@ $RECYCLE.BIN/
 *.dll
 *.cache
 *.wlog
+*.msi
+Installers/NDP461-KB3102436-x86-x64-AllOS-ENU.exe
