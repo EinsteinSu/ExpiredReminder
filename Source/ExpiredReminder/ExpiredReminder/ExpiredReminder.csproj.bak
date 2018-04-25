@@ -34,15 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v17.2" />
-    <Reference Include="DevExpress.Xpf.Controls.v17.2" />
-    <Reference Include="DevExpress.Xpf.Core.v17.2" />
-    <Reference Include="DevExpress.Xpf.Grid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.LayoutControl.v17.2" />
-    <Reference Include="DevExpress.Mvvm.v17.2" />
-    <Reference Include="DevExpress.Printing.v17.2.Core" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.2" />
+    <Reference Include="DevExpress.Data.v17.1" />
+    <Reference Include="DevExpress.Xpf.Controls.v17.1" />
+    <Reference Include="DevExpress.Xpf.Core.v17.1" />
+    <Reference Include="DevExpress.Xpf.Printing.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v17.1.Core, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v17.1" />
+    <Reference Include="DevExpress.Mvvm.v17.1" />
+    <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.1" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -73,23 +74,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Common\ISave.cs" />
-    <Compile Include="Common\ReminderContext.cs" />
+    <Compile Include="Common\SimpleEditControlBase.cs" />
     <Compile Include="DataModel\DataCommon.cs" />
     <Compile Include="DataModel\DataItem.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\FunctionalityPages\CaseEdit.cs" />
+    <Compile Include="ViewModel\FunctionalityPages\ExpiredPolicyEdit.cs" />
+    <Compile Include="ViewModel\FunctionalityPages\LawyerEdit.cs" />
     <Compile Include="ViewModel\GroupedItemsViewModel.cs" />
     <Compile Include="ViewModel\ItemDetailViewModel.cs" />
-    <Compile Include="View\FunctionalityPages\CaseEdit.xaml.cs">
-      <DependentUpon>CaseEdit.xaml</DependentUpon>
+    <Compile Include="View\FunctionalityPages\CaseEditView.xaml.cs">
+      <DependentUpon>CaseEditView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FunctionalityPages\ExpiredPolicyEdit.xaml.cs">
-      <DependentUpon>ExpiredPolicyEdit.xaml</DependentUpon>
+    <Compile Include="View\FunctionalityPages\ExpiredCaseView.xaml.cs">
+      <DependentUpon>ExpiredCaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FunctionalityPages\LawyerEdit.xaml.cs">
-      <DependentUpon>LawyerEdit.xaml</DependentUpon>
+    <Compile Include="View\FunctionalityPages\ExpiredPolicyEditView.xaml.cs">
+      <DependentUpon>ExpiredPolicyEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FunctionalityPages\LawyerEditView.xaml.cs">
+      <DependentUpon>LawyerEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GroupedItemsPage.xaml.cs">
       <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
@@ -106,15 +112,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FunctionalityPages\CaseEdit.xaml">
+    <Page Include="View\FunctionalityPages\CaseEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FunctionalityPages\ExpiredPolicyEdit.xaml">
+    <Page Include="View\FunctionalityPages\ExpiredCaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FunctionalityPages\LawyerEdit.xaml">
+    <Page Include="View\FunctionalityPages\ExpiredPolicyEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FunctionalityPages\LawyerEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,9 +181,7 @@
       <Name>ExpiredReminder.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\FunctionalityPages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

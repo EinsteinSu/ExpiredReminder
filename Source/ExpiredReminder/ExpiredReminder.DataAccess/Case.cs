@@ -45,6 +45,8 @@ namespace ExpiredReminder.DataAccess
 
         public string Comment { get; set; }
 
+        public string ResourceDirectory { get; set; }
+
         public bool CancelRemind { get; set; }
     }
 }

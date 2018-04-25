@@ -34,6 +34,16 @@
                     <dxe:MemoEditSettings MemoTextWrapping="Wrap" ShowIcon="False"/>
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
+            <dxg:GridColumn FieldName="ResourceDirectory" Header="Resource Directory">
+                <dxg:GridColumn.DisplayTemplate>
+                    <ControlTemplate>
+                        <dxe:HyperlinkEdit Name="PART_Editor" RequestNavigation="HyperlinkEdit_OnRequestNavigation" AllowAutoNavigate="True" Text="{Binding RowData.DataContext.ResourceDirectory,Mode=TwoWay}" />
+                    </ControlTemplate>
+                </dxg:GridColumn.DisplayTemplate>
+                <dxg:GridColumn.EditSettings>
+                    <dxe:ButtonEditSettings DefaultButtonClick="ButtonEditSettings_OnDefaultButtonClick"/>
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
             <dxg:GridColumn FieldName="FirstTime" Header="一审立案时间"/>
             <dxg:GridColumn FieldName="SecondTime" Header="二审立案时间"/>
             <dxg:GridColumn FieldName="FinishTime" Header="执行结案时间"/>
@@ -46,7 +56,7 @@
                     <dxe:MemoEditSettings ShowIcon="False" MemoTextWrapping="WrapWithOverflow"/>
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
-            <dxg:GridColumn FieldName="Comment" Header="备注" SortOrder="Ascending" SortIndex="0">
+            <dxg:GridColumn FieldName="Comment" Header="备注">
                 <dxg:GridColumn.EditSettings>
                     <dxe:MemoEditSettings ShowIcon="False" MemoTextWrapping="WrapWithOverflow"/>
                 </dxg:GridColumn.EditSettings>
